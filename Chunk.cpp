@@ -1,10 +1,13 @@
 #include <iostream>
+#include <string>
+#include "chunk.hpp"
+using namespace std;
 
-class ChunkManager
+/*class ChunkManager
 {
 	int range;
 	
-	Chunk[][][] chunks;
+        Chunk chunks[3][3][3];
 	
 	void shiftGrid(int x, int y, int z)
 	{		
@@ -12,54 +15,50 @@ class ChunkManager
 	
 	Chunk loadChunk(int x, int y, int z)
 	{
-		Chunk c = new Chunk();
-		c.load(x, y, z);
+                Chunk c();
+                c.load(x, y, z);
 	}
 	
-	void unloadChunk(Chunk c, int x, int y, int z)
+        void unloadChunk(Chunk &c, int x, int y, int z)
 	{
-		c.save(x, y, z);
+                c->Chunk::save(x, y, z);
 		delete c;
 	}
+};*/
+
+void Chunk::load(int x, int y, int z)
+{
+        //Check if Chunk exists on disk
+        FILE * data = fopen(createChunkFilePath(x, y, z).c_str(), "r+");
+        //If yes load the chunk and apply aging
+        if(data)
+        {
+                //load data
+        }
+        //Else Create New Chunk
+        fclose(data);
+}
+	
+void Chunk::age(int currentAge)
+{
+        //Calcuate age distance
+        //Change Geography
+        //Age exisitng entities
+        //Create new entities
+        //Set lastAge = currentAge
+}
+		
+void Chunk::save(int x, int y, int z)
+{
 }
 
-class Chunk
+
+string createChunkFilePath(int x, int y, int z)
 {
-	int lastAge;
-	
-	void load(int x, int y, int z)
-	{
-		//Check if Chunk exists on disk
-		FILE * data = fopen(createFileName(x, y, z), "r+");
-		//If yes load the chunk and apply aging
-		if(data)
-		{
-			//load data
-		}			
-		//Else Create New Chunk
-		fclose(data);
-	}
-	
-	void age(int currentAge)
-	{
-		//Calcuate age distance
-		//Change Geography
-		//Age exisitng entities
-		//Create new entities
-		//Set lastAge = currentAge
-	}
-		
-	void save(int x, int y, int z)
-	{
-	}
-	
-	String createFileName(int x, int y, int z)
-	{
-		//Creates the name of a FILE containing the chunk data at X/Y/Z
-		String path = "./data/" += Game.getCurrentGame().getName() += "/";
-		path += string::to_string(x) += "x";		
-		path += string::to_string(y) += "x";
-		path += string::to_string(z) += ".ctc";
-		return path;
-	}
+        //Creates the name of a FILE containing the chunk data at X/Y/Z
+        string path ("./data/") /*+= Game.getCurrentGame().getName()*/;
+        path += to_string(x) += "x";
+        path += to_string(y) += "x";
+        path += to_string(z) += ".ctc";
+        return path;
 }
