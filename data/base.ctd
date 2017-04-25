@@ -1,0 +1,23 @@
+define Entity baseEntity
+var:
+string namePrefix
+important vec2 position
+endvar
+
+pyth:
+def update():
+    pass
+def getTexture():
+    return "default"
+endpyth
+
+define Entity baseMovingEntity extends baseEntity
+var:
+important vec2 velocity
+endvar
+
+pyth:
+def update():
+    &super()
+    position += velocity
+endpyth
