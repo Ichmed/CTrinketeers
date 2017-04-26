@@ -1,0 +1,34 @@
+World
+	Chunks
+		Chunk
+			save, load and datastructure
+		ChunkManager
+			shiftGrid
+			getTile
+	Entities
+		Ai
+			Behaviours
+			Python Interpreter
+		writeToChunk
+		Declaration Requires
+			Variables:
+				string namePrefix = [Name]
+				important vec2 Position = [Position]
+			Python:
+				def update()
+				def getTextureName()
+			
+Interface
+DeclarationFiles
+	Name
+	Parent
+		Variables (varName, varType, initValue, isImportant)
+			Style: [important] <type> <name> = <value>
+				important marks the value as important, important values will be saved
+				unimportant variables will be reinizialized when an object is created
+				value defaults to 0, null or {}
+				<name> = <value> will override the parents initial value
+			Required Variables (included in baseEntity):
+				
+		Python Code
+			May refference Variables

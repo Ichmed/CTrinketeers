@@ -26,6 +26,19 @@ using namespace std;
 	}
 };*/
 
+Chunk ChunkManager::loadChunk(int x, int y, int z)
+{
+	Chunk c();
+	c.load(x, y, z);
+	return c;
+}
+
+void ChunkManager::unloadChunk(Chunk &c, int x, int y, int z)
+{
+	c->Chunk::save(x, y, z);
+	delete c;
+}
+
 void Chunk::load(int x, int y, int z)
 {
         //Check if Chunk exists on disk
