@@ -8,14 +8,13 @@ World
 	Entities
 		Ai
 			Behaviours
-			Python Interpreter
+Done			Python Interpreter
 		writeToChunk
 		Declaration Requires
 			Variables:
-				string namePrefix = [Name]
-				important vec2 Position = [Position]
 			Python:
 				def update()
+				def getPosition()
 				def getTextureName()
 			
 Interface
