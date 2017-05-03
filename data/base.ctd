@@ -1,12 +1,10 @@
 define Entity baseEntity
-var:
+
 important vec2 position
 important vec2 velocity
-endvar
 
-$pyth:
-def update():
+$pyth
+def update(self):
     pass
-def getTexture():
+def getTexture(self):
     return "default"
-$endpyth

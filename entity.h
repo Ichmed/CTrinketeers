@@ -2,19 +2,22 @@
 #define __ENTITY_H__
 #include <python2.7/Python.h>
 #include <string>
-#include "game"
+#include "game.h"
+#include "dataloader.h"
 
 class Entity
 {
-	Entity(string);
-	~Entity();
-	public:
-	string m_name, m_pythIdentifier;
+public:
+    Entity(std::string, int);
+    ~Entity();
+    std::string m_name;
+    std::string m_pythIdentifier;
 	int m_id;
 	void update();
 	void onDeath();
-	void onCollision();
-	string getTexture();
-}
+	void onCollision(std::string);
+	void onSpawn();
+    std::string getTexture();
+};
 
 #endif
