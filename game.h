@@ -1,9 +1,10 @@
-#ifndef __GAME_H__
-#define __GAME_H__
-#include <string>
+#ifndef GAME_H
+#define GAME_H
 
-int getNextEntityId();
+class Game
+{
+public:
+    Game();
+};
 
-#endif
-
-
+#endif // GAME_H
